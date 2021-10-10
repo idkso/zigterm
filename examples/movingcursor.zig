@@ -1,8 +1,4 @@
-const std = @import("std");
 const zt = @import("zigterm");
-const stdin = std.io.getStdIn().reader();
-var gpa = std.heap.GeneralPurposeAllocator(.{}){};
-const alloc = &gpa.allocator;
 
 pub fn main() anyerror!void {
     try zt.initscr();
@@ -26,8 +22,6 @@ pub fn main() anyerror!void {
         try zt.move(y, x);
     }
 
-    try zt.color(zt.colors.RESET);
-    try zt.attroff();
     try zt.refresh();
     try zt.endwin();
 }
